@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sasta Safar - Sign Up</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="signup.css">
+
+    <!-- JavaScript File -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="signup-container">
+
+        <!-- Signup Box -->
+        <div class="signup-box">
+
+            <h1>Sasta Safar</h1>
+
+            <p class="tagline">Travel Smart. Travel Together.</p>
+
+            <h2>Create Account</h2>
+
+            <!-- Message box to display validation errors or success message -->
+            <div id="signupMessage" class="message-box"></div>
+
+            <!-- Signup Form -->
+            <form id="signupForm">
+
+                <!-- Full Name -->
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name" required>
+
+                <!-- Email Address -->
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <!-- 10-digit Phone Number -->
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter 10-digit phone number" pattern="[0-9]{10}" maxlength="10" required>
+
+                <!-- Primary Role Selection -->
+                <label for="role">I am primarily a</label>
+                <select id="role" name="role" required>
+                    <option value="passenger" selected>Passenger (Book Rides)</option>
+                    <option value="driver">Driver (Offer Rides)</option>
+                </select>
+
+                <!-- Password -->
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a password (min 6 characters)" minlength="6" required>
+
+                <!-- Confirm Password -->
+                <label for="confirm">Confirm Password</label>
+                <input type="password" id="confirm" placeholder="Re-enter your password" minlength="6" required>
+
+                <!-- Show/Hide Passwords Checkbox -->
+                <div class="show-password">
+                    <input type="checkbox" id="showSignupPassword">
+                    <label for="showSignupPassword">Show Passwords</label>
+                </div>
+
+                <!-- Terms and Conditions Checkbox -->
+                <div class="terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the Terms &amp; Conditions</label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="signupButton">Sign Up</button>
+
+            </form>
+
+            <!-- Link to Login Page -->
+            <p class="login-link">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+            <!-- Back to Home Link -->
+            <p class="back-home">
+                <a href="index.html">&larr; Back to Home</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

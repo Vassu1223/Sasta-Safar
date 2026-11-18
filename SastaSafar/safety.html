@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sasta Safar - Safety &amp; Security</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="safety.css">
+
+    <!-- JavaScript File -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =========================
+         Navbar Header
+    ========================== -->
+    <header>
+
+        <div class="logo">
+            Sasta Safar
+        </div>
+
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="trips.html">Trips</a>
+            <a href="howitworks.html">How It Works</a>
+            <a href="safety.html" class="active">Safety</a>
+            <a href="dashboard.html" id="navDashboard">
+                Dashboard <span id="notifBadge" class="notif-badge hidden">0</span>
+            </a>
+            <a href="login.html" id="navLogin">Login</a>
+            <a href="signup.html" class="signup" id="navSignup">Sign Up</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         Safety Hero Section
+    ========================== -->
+    <section class="safety-hero">
+
+        <h1>🛡️ Safety &amp; Security Center</h1>
+
+        <p>
+            Your protection is our priority. Explore dedicated safety safeguards, 
+            emergency tools, and verified ride information for both passengers and drivers.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         Main Safety Container
+    ========================== -->
+    <main class="safety-container">
+
+        <!-- =========================
+             Academic Demo Security Notice
+        ========================== -->
+        <div class="academic-disclaimer-box">
+            <div class="disclaimer-header">
+                <span class="disclaimer-icon">⚠️</span>
+                <strong>Academic Demonstration &amp; Security Notice (MCA College Project)</strong>
+            </div>
+            <p>
+                Sasta Safar is an academic prototype built using HTML, CSS, and Vanilla JavaScript with browser LocalStorage. 
+                Emergency SOS options utilize standard telephone protocols (<code>tel:112</code>) that launch your device's dialler; 
+                web browsers cannot autonomously initiate phone calls. Trip sharing uses the Web Share API with clipboard fallback. 
+                In a production carpooling application, live GPS tracking, automated SOS dispatch, and identity verification 
+                require dedicated backend cloud services, encrypted databases, and government API integrations (DigiLocker / VAHAN).
+            </p>
+        </div>
+
+
+        <!-- =========================
+             Role Toggle Navigation Tabs
+        ========================== -->
+        <div class="safety-tabs-nav">
+            <button type="button" class="safety-tab-btn active" id="tabPassengerSafetyBtn">
+                🧑‍💼 Passenger Safety Hub
+            </button>
+            <button type="button" class="safety-tab-btn" id="tabDriverSafetyBtn">
+                🚗 Driver Safety Hub
+            </button>
+        </div>
+
+
+        <!-- =================================================================
+             PANE 1: PASSENGER SAFETY HUB
+        ================================================================== -->
+        <div class="safety-pane active" id="passengerSafetyPane">
+
+            <div class="safety-grid">
+
+                <!-- 1. Emergency SOS Button Card -->
+                <div class="safety-card card-sos">
+                    <div class="card-header">
+                        <span class="card-icon">🚨</span>
+                        <div>
+                            <h2>Emergency SOS (Helpline 112)</h2>
+                            <p class="card-subtitle">Immediate assistance during critical situations</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        If you ever feel unsafe or face an emergency during your ride, press the button below. 
+                        A confirmation dialog will appear first to prevent accidental triggers.
+                    </p>
+
+                    <button type="button" class="btn-sos-trigger" id="passengerSosBtn">
+                        🚨 Trigger Emergency SOS
+                    </button>
+
+                    <!-- Active Emergency Panel (Shown upon confirmation) -->
+                    <div class="sos-action-panel hidden" id="passengerSosActivePanel">
+                        <div class="sos-active-badge">⚠️ EMERGENCY ASSISTANCE ACTIVATED</div>
+                        
+                        <p class="sos-instructions">
+                            Tap below to launch your phone dialler. Emergency calls require manual confirmation on your device:
+                        </p>
+
+                        <div class="sos-call-actions">
+                            <a href="tel:112" class="btn-dial-112">
+                                📞 Call National Emergency Helpline 112
+                            </a>
+
+                            <a href="#" class="btn-dial-contact hidden" id="pSosContactLink">
+                                📞 Call Saved Emergency Contact
+                            </a>
+                        </div>
+
+                        <div class="emergency-quick-details" id="pEmergencyRideDetails">
+                            <h4>📋 Quick Details for Dispatcher:</h4>
+                            <p><strong>Passenger:</strong> <span id="sosPName">Current User</span></p>
+                            <p><strong>Driver:</strong> <span id="sosPDriver">Rahul Sharma</span></p>
+                            <p><strong>Vehicle:</strong> <span id="sosPVehicle">Maruti Suzuki Swift (UP 75 AB 1234)</span></p>
+                            <p><strong>Route:</strong> <span id="sosPRoute">Etawah &rarr; Delhi</span></p>
+                        </div>
+
+                        <button type="button" class="btn-close-sos" id="closePassengerSosPanel">
+                            Close Emergency Panel
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- 2. Emergency Contact Manager -->
+                <div class="safety-card">
+                    <div class="card-header">
+                        <span class="card-icon">👥</span>
+                        <div>
+                            <h2>Emergency Contact</h2>
+                            <p class="card-subtitle">Trusted contact saved on your browser</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Save a trusted family member or friend. In an emergency, you can call them directly with one click.
+                    </p>
+
+                    <!-- Saved Contact Display Card -->
+                    <div class="saved-contact-box hidden" id="pSavedContactBox">
+                        <div class="contact-info-row">
+                            <strong id="pSavedName">John Doe</strong>
+                            <span class="relation-badge" id="pSavedRelation">Parent</span>
+                        </div>
+                        <p class="contact-phone" id="pSavedPhone">📱 +91 9876543210</p>
+                        
+                        <div class="contact-card-actions">
+                            <a href="tel:" class="btn-call-contact-action" id="pCallSavedBtn">
+                                📞 Call Contact
+                            </a>
+                            <button type="button" class="btn-edit-contact" id="pEditContactBtn">
+                                ✏️ Edit
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contact Input Form -->
+                    <form id="passengerContactForm" class="safety-form">
+                        <label for="pContactName">Contact Full Name</label>
+                        <input type="text" id="pContactName" placeholder="e.g. Ramesh Kumar" required>
+
+                        <label for="pContactPhone">10-Digit Mobile Number</label>
+                        <input type="tel" id="pContactPhone" placeholder="e.g. 9876543210" pattern="[0-9]{10}" maxlength="10" required>
+
+                        <label for="pContactRelation">Relationship</label>
+                        <select id="pContactRelation">
+                            <option value="Parent">Parent</option>
+                            <option value="Spouse / Partner">Spouse / Partner</option>
+                            <option value="Sibling">Sibling</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Guardian">Guardian</option>
+                        </select>
+
+                        <button type="submit" class="btn-primary-action">
+                            💾 Save Emergency Contact
+                        </button>
+                    </form>
+
+                    <div id="pContactMessage" class="feedback-msg"></div>
+                </div>
+
+
+                <!-- 3. Share Trip Details Card -->
+                <div class="safety-card">
+                    <div class="card-header">
+                        <span class="card-icon">📤</span>
+                        <div>
+                            <h2>Share Trip Details</h2>
+                            <p class="card-subtitle">Keep friends and family informed</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Share your complete itinerary, vehicle number, and driver details with trusted contacts via WhatsApp, SMS, or any messaging app.
+                    </p>
+
+                    <!-- Select active trip -->
+                    <label for="pShareTripSelect"><strong>Select Trip to Share:</strong></label>
+                    <select id="pShareTripSelect" class="safety-select">
+                        <!-- Populated by JS -->
+                    </select>
+
+                    <!-- Trip Details Preview Box -->
+                    <div class="trip-preview-box" id="pTripPreviewBox">
+                        <p><strong>Route:</strong> <span id="pPreviewRoute">Etawah &rarr; Delhi</span></p>
+                        <p><strong>Driver:</strong> <span id="pPreviewDriver">Rahul Sharma</span></p>
+                        <p><strong>Vehicle:</strong> <span id="pPreviewVehicle">Maruti Suzuki Swift (UP 75 AB 1234)</span></p>
+                        <p><strong>Departure:</strong> <span id="pPreviewTime">01 Nov 2026 at 06:00 AM</span></p>
+                    </div>
+
+                    <div class="share-actions-row">
+                        <button type="button" class="btn-share-main" id="pShareTripBtn">
+                            📲 Share Trip Info
+                        </button>
+                        <button type="button" class="btn-copy-main" id="pCopyTripBtn">
+                            📋 Copy to Clipboard
+                        </button>
+                    </div>
+
+                    <div id="pShareFeedback" class="feedback-msg"></div>
+                </div>
+
+
+                <!-- 4. Driver Information & Verification Status -->
+                <div class="safety-card">
+                    <div class="card-header">
+                        <span class="card-icon">🔍</span>
+                        <div>
+                            <h2>Driver Information</h2>
+                            <p class="card-subtitle">Transparent ride credentials</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Always verify driver details and vehicle registration number before entering any car.
+                    </p>
+
+                    <div class="driver-profile-card">
+                        <div class="driver-profile-header">
+                            <div class="driver-avatar">👤</div>
+                            <div>
+                                <h3 id="pDriverCardName">Rahul Sharma</h3>
+                                <p class="driver-phone" id="pDriverCardPhone">📱 +91 9876543210</p>
+                            </div>
+                        </div>
+
+                        <div class="driver-details-list">
+                            <p><strong>Vehicle Model:</strong> <span id="pDriverCardVehicle">Maruti Suzuki Swift (Hatchback)</span></p>
+                            <p><strong>Registration Number:</strong> <span class="vehicle-plate" id="pDriverCardPlate">UP 75 AB 1234</span></p>
+                            <p><strong>Community Rating:</strong> ⭐ 4.8 / 5.0 (42 Trips Completed)</p>
+                        </div>
+
+                        <!-- Honest verification status banner -->
+                        <div class="verification-badge-box">
+                            <div class="badge-status-line">
+                                <span class="status-indicator-blue">●</span>
+                                <strong>Verification Status: Basic Profile &amp; Mobile Verified</strong>
+                            </div>
+                            <p class="verification-disclaimer">
+                                ℹ️ Note: Driver identity documents (driving license and vehicle RC) are self-declared 
+                                for this academic demonstration and have not been certified by government transport authorities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 5. Report a Problem (Passenger) -->
+                <div class="safety-card card-full-width">
+                    <div class="card-header">
+                        <span class="card-icon">🚩</span>
+                        <div>
+                            <h2>Report a Safety Concern</h2>
+                            <p class="card-subtitle">Submit safety issues or suspicious behaviour</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Help us maintain a safe community. Report dangerous driving, unexpected route deviations, or improper behaviour. 
+                        Reports are stored securely in local browser storage for review.
+                    </p>
+
+                    <form id="passengerReportForm" class="safety-form grid-form">
+                        <div>
+                            <label for="pReportCategory">Issue Category</label>
+                            <select id="pReportCategory" required>
+                                <option value="Reckless / Dangerous Driving">Reckless / Dangerous Driving</option>
+                                <option value="Unapproved Route Deviation">Unapproved Route Deviation</option>
+                                <option value="Inappropriate Behaviour / Harassment">Inappropriate Behaviour / Harassment</option>
+                                <option value="Vehicle Condition / Safety Hazard">Vehicle Condition / Safety Hazard</option>
+                                <option value="Fare Overcharge Dispute">Fare Overcharge Dispute</option>
+                                <option value="Other Safety Issue">Other Safety Issue</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="pReportDriver">Driver / Trip Reference</label>
+                            <input type="text" id="pReportDriver" placeholder="e.g. Rahul Sharma or Booking ID" required>
+                        </div>
+
+                        <div class="full-col">
+                            <label for="pReportDescription">Detailed Description</label>
+                            <textarea id="pReportDescription" rows="3" placeholder="Please describe what happened, including time and location..." required></textarea>
+                        </div>
+
+                        <div class="full-col">
+                            <button type="submit" class="btn-report-submit">
+                                🚩 Submit Safety Report
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="pReportMessage" class="feedback-msg"></div>
+
+                    <!-- Submitted reports list -->
+                    <div class="submitted-reports-section">
+                        <h3>Your Logged Safety Reports</h3>
+                        <div id="pReportsHistory" class="reports-history-list">
+                            <p class="empty-state">No safety reports submitted yet.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================================
+             PANE 2: DRIVER SAFETY HUB
+        ================================================================== -->
+        <div class="safety-pane" id="driverSafetyPane">
+
+            <div class="safety-grid">
+
+                <!-- 1. Driver Emergency SOS Button Card -->
+                <div class="safety-card card-sos">
+                    <div class="card-header">
+                        <span class="card-icon">🚨</span>
+                        <div>
+                            <h2>Driver Emergency SOS (Helpline 112)</h2>
+                            <p class="card-subtitle">Emergency support for road safety and personal security</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        If you encounter road rage, passenger threats, highway breakdown, or an accident, 
+                        press the SOS button. A confirmation will be requested before dialling.
+                    </p>
+
+                    <button type="button" class="btn-sos-trigger" id="driverSosBtn">
+                        🚨 Trigger Driver Emergency SOS
+                    </button>
+
+                    <!-- Active Emergency Panel (Shown upon confirmation) -->
+                    <div class="sos-action-panel hidden" id="driverSosActivePanel">
+                        <div class="sos-active-badge">⚠️ DRIVER EMERGENCY ASSISTANCE ACTIVATED</div>
+                        
+                        <p class="sos-instructions">
+                            Tap below to launch your phone dialler with India's National Emergency Helpline:
+                        </p>
+
+                        <div class="sos-call-actions">
+                            <a href="tel:112" class="btn-dial-112">
+                                📞 Call National Emergency Helpline 112
+                            </a>
+
+                            <a href="#" class="btn-dial-contact hidden" id="dSosContactLink">
+                                📞 Call Saved Emergency Contact
+                            </a>
+                        </div>
+
+                        <div class="emergency-quick-details">
+                            <h4>📋 Quick Details for Emergency Responders:</h4>
+                            <p><strong>Driver:</strong> <span id="sosDName">Driver</span></p>
+                            <p><strong>Emergency Contact:</strong> <span id="sosDContactText">Saved in Profile</span></p>
+                            <p><strong>Note:</strong> Calling requires standard mobile device dialler initiation.</p>
+                        </div>
+
+                        <button type="button" class="btn-close-sos" id="closeDriverSosPanel">
+                            Close Emergency Panel
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- 2. Driver Emergency Contact Manager -->
+                <div class="safety-card">
+                    <div class="card-header">
+                        <span class="card-icon">👥</span>
+                        <div>
+                            <h2>Driver Emergency Contact</h2>
+                            <p class="card-subtitle">Stored safely in local browser storage</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Keep an emergency contact ready in case of health issues, accidents, or vehicular trouble on the highway.
+                    </p>
+
+                    <!-- Saved Contact Display Card -->
+                    <div class="saved-contact-box hidden" id="dSavedContactBox">
+                        <div class="contact-info-row">
+                            <strong id="dSavedName">Jane Doe</strong>
+                            <span class="relation-badge" id="dSavedRelation">Spouse</span>
+                        </div>
+                        <p class="contact-phone" id="dSavedPhone">📱 +91 9812345678</p>
+                        
+                        <div class="contact-card-actions">
+                            <a href="tel:" class="btn-call-contact-action" id="dCallSavedBtn">
+                                📞 Call Contact
+                            </a>
+                            <button type="button" class="btn-edit-contact" id="dEditContactBtn">
+                                ✏️ Edit
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contact Input Form -->
+                    <form id="driverContactForm" class="safety-form">
+                        <label for="dContactName">Contact Full Name</label>
+                        <input type="text" id="dContactName" placeholder="e.g. Suman Sharma" required>
+
+                        <label for="dContactPhone">10-Digit Mobile Number</label>
+                        <input type="tel" id="dContactPhone" placeholder="e.g. 9812345678" pattern="[0-9]{10}" maxlength="10" required>
+
+                        <label for="dContactRelation">Relationship</label>
+                        <select id="dContactRelation">
+                            <option value="Spouse / Partner">Spouse / Partner</option>
+                            <option value="Parent">Parent</option>
+                            <option value="Sibling">Sibling</option>
+                            <option value="Friend">Friend</option>
+                            <option value="Colleague">Colleague</option>
+                        </select>
+
+                        <button type="submit" class="btn-primary-action">
+                            💾 Save Emergency Contact
+                        </button>
+                    </form>
+
+                    <div id="dContactMessage" class="feedback-msg"></div>
+                </div>
+
+
+                <!-- 3. Share Live Trip Information (Driver) -->
+                <div class="safety-card">
+                    <div class="card-header">
+                        <span class="card-icon">🗺️</span>
+                        <div>
+                            <h2>Share Route &amp; Trip Info</h2>
+                            <p class="card-subtitle">Share your travel schedule with family</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Share your planned route, vehicle number, and estimated schedule with trusted contacts before departing.
+                    </p>
+
+                    <!-- Select offered trip -->
+                    <label for="dShareTripSelect"><strong>Select Offered Trip:</strong></label>
+                    <select id="dShareTripSelect" class="safety-select">
+                        <!-- Populated by JS -->
+                    </select>
+
+                    <div class="trip-preview-box" id="dTripPreviewBox">
+                        <p><strong>Route:</strong> <span id="dPreviewRoute">Etawah &rarr; Delhi</span></p>
+                        <p><strong>Vehicle Number:</strong> <span id="dPreviewVehicle">UP 75 AB 1234</span></p>
+                        <p><strong>Travel Date:</strong> <span id="dPreviewDate">01 Nov 2026</span></p>
+                        <p><strong>Departure Time:</strong> <span id="dPreviewTime">06:00 AM</span></p>
+                    </div>
+
+                    <p class="gps-notice">
+                        ℹ️ <em>Notice: Route information is static text sharing. Live GPS hardware tracking is not connected in this demonstration.</em>
+                    </p>
+
+                    <div class="share-actions-row">
+                        <button type="button" class="btn-share-main" id="dShareTripBtn">
+                            📲 Share Route Details
+                        </button>
+                        <button type="button" class="btn-copy-main" id="dCopyTripBtn">
+                            📋 Copy Route Details
+                        </button>
+                    </div>
+
+                    <div id="dShareFeedback" class="feedback-msg"></div>
+                </div>
+
+
+                <!-- 4. Vehicle Safety Checklist Card -->
+                <div class="safety-card">
+                    <div class="card-header">
+                        <span class="card-icon">🔧</span>
+                        <div>
+                            <h2>Pre-Trip Vehicle Safety Checklist</h2>
+                            <p class="card-subtitle">Complete inspection before starting your ride</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Ensure all mandatory documents and vehicle components are inspected for a safe journey:
+                    </p>
+
+                    <!-- Checklist Progress Indicator -->
+                    <div class="checklist-progress-container">
+                        <div class="progress-label">
+                            <span id="checklistStatusText">Checklist: 0 of 6 items completed</span>
+                            <span id="checklistBadge" class="badge-incomplete">Incomplete</span>
+                        </div>
+                        <div class="progress-bar-track">
+                            <div class="progress-bar-fill" id="checklistProgressBar" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Checklist Items Form -->
+                    <div class="checklist-items-list" id="vehicleChecklistContainer">
+                        <label class="check-item">
+                            <input type="checkbox" data-index="0" class="checklist-checkbox">
+                            <span>1. Valid Driving Licence &amp; Photo ID carried</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input type="checkbox" data-index="1" class="checklist-checkbox">
+                            <span>2. Vehicle Registration Certificate (RC) &amp; PUC valid</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input type="checkbox" data-index="2" class="checklist-checkbox">
+                            <span>3. Active Vehicle Insurance policy available</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input type="checkbox" data-index="3" class="checklist-checkbox">
+                            <span>4. Fuel / Battery charge sufficient for full trip</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input type="checkbox" data-index="4" class="checklist-checkbox">
+                            <span>5. Tyres condition, pressure &amp; brakes inspected</span>
+                        </label>
+
+                        <label class="check-item">
+                            <input type="checkbox" data-index="5" class="checklist-checkbox">
+                            <span>6. Emergency First-Aid Kit &amp; Spare Tyre / Tools present</span>
+                        </label>
+                    </div>
+
+                    <div class="checklist-actions">
+                        <button type="button" class="btn-secondary-action" id="resetChecklistBtn">
+                            🔄 Reset Checklist
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- 5. Confirmed Passenger Information (Driver View) -->
+                <div class="safety-card card-full-width">
+                    <div class="card-header">
+                        <span class="card-icon">👥</span>
+                        <div>
+                            <h2>Confirmed Passenger Information</h2>
+                            <p class="card-subtitle">Verified passenger bookings for your offered rides</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Below are passenger bookings confirmed for your trips. Sensitive identity documents are omitted to respect passenger privacy.
+                    </p>
+
+                    <div class="privacy-note">
+                        🔒 <strong>Privacy Protection:</strong> Only essential booking names, requested seat counts, and trip routes are shown. Personal data is minimized.
+                    </div>
+
+                    <div id="driverPassengerList" class="passenger-booking-grid">
+                        <!-- Populated dynamically from localStorage sastaSafarBookings -->
+                    </div>
+                </div>
+
+
+                <!-- 6. Report Passenger (Driver) -->
+                <div class="safety-card card-full-width">
+                    <div class="card-header">
+                        <span class="card-icon">🚩</span>
+                        <div>
+                            <h2>Report Inappropriate Passenger Behaviour</h2>
+                            <p class="card-subtitle">Log passenger safety violations or misconduct</p>
+                        </div>
+                    </div>
+
+                    <p class="card-desc">
+                        Report unruly, abusive, or dangerous passenger conduct to maintain a respectful peer-to-peer carpooling community.
+                    </p>
+
+                    <form id="driverReportForm" class="safety-form grid-form">
+                        <div>
+                            <label for="dReportCategory">Violation Category</label>
+                            <select id="dReportCategory" required>
+                                <option value="Inappropriate / Abusive Behaviour">Inappropriate / Abusive Behaviour</option>
+                                <option value="Refusal to Pay Agreed Share">Refusal to Pay Agreed Share</option>
+                                <option value="Smoking / Alcohol inside Vehicle">Smoking / Alcohol inside Vehicle</option>
+                                <option value="Distracting Driver / Safety Threat">Distracting Driver / Safety Threat</option>
+                                <option value="Passenger No-show Without Notice">Passenger No-show Without Notice</option>
+                                <option value="Other Misconduct">Other Misconduct</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="dReportPassenger">Passenger Name / Booking Reference</label>
+                            <input type="text" id="dReportPassenger" placeholder="e.g. Booking #BK123456 or Passenger Name" required>
+                        </div>
+
+                        <div class="full-col">
+                            <label for="dReportDescription">Incident Details</label>
+                            <textarea id="dReportDescription" rows="3" placeholder="Describe the passenger's behaviour or violation in detail..." required></textarea>
+                        </div>
+
+                        <div class="full-col">
+                            <button type="submit" class="btn-report-submit">
+                                🚩 Submit Driver Safety Report
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="dReportMessage" class="feedback-msg"></div>
+
+                    <!-- Submitted driver reports list -->
+                    <div class="submitted-reports-section">
+                        <h3>Your Logged Driver Safety Reports</h3>
+                        <div id="dReportsHistory" class="reports-history-list">
+                            <p class="empty-state">No driver reports submitted yet.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         SOS Confirmation Modal
+    ========================== -->
+    <div class="safety-modal-overlay hidden" id="sosModalOverlay">
+        <div class="safety-modal-card">
+            <div class="modal-alert-icon">⚠️</div>
+            <h3 id="sosModalTitle">Confirm Emergency Action</h3>
+            <p id="sosModalText">
+                Are you sure you want to trigger emergency assistance? 
+                This will display immediate options to dial India's National Emergency Helpline (112) 
+                and alert your saved emergency contact.
+            </p>
+            <div class="modal-btn-row">
+                <button type="button" class="btn-modal-cancel" id="cancelSosModalBtn">Cancel</button>
+                <button type="button" class="btn-modal-confirm" id="confirmSosModalBtn">Yes, I Need Emergency Help</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =========================
+         Footer Section
+    ========================== -->
+    <footer>
+
+        <h3>Sasta Safar</h3>
+
+        <p>Travel Smart. Travel Together.</p>
+
+        <p class="copyright">
+            &copy; 2026 Sasta Safar. All Rights Reserved. MCA College Project Demonstration.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

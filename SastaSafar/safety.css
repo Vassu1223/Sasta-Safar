@@ -1,0 +1,1075 @@
+/* ==========================================================================
+   SASTA SAFAR - SAFETY & SECURITY CSS (safety.css)
+   --------------------------------------------------------------------------
+   Blue-and-White Theme Styling for:
+   1. Safety Hero Banner & Academic Demonstration Disclaimer
+   2. Tab Navigation (Passenger Safety vs Driver Safety)
+   3. Emergency SOS Buttons & Active Emergency Action Panels
+   4. Emergency Contact Manager (Inputs & Saved Contact Card)
+   5. Trip Details Sharing & Clipboard Fallback
+   6. Transparent Driver & Passenger Verification Displays
+   7. Vehicle Pre-Trip Safety Checklist & Interactive Progress Bar
+   8. Safety Concern Reporting Forms & History Records
+   9. SOS Confirmation Modal
+   ========================================================================== */
+
+/* =========================
+   BASIC PAGE CONTAINER
+========================= */
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background-color: #f5f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================
+   SAFETY HERO BANNER
+========================= */
+
+.safety-hero {
+    background: linear-gradient(135deg, #1769ff 0%, #0d47a1 100%);
+    color: white;
+    padding: 45px 8% 40px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(23, 105, 255, 0.2);
+}
+
+.safety-hero h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.safety-hero p {
+    font-size: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    color: #e0ecff;
+    line-height: 1.6;
+}
+
+/* =========================
+   MAIN SAFETY CONTAINER
+========================= */
+
+.safety-container {
+    max-width: 1200px;
+    margin: 30px auto 60px;
+    padding: 0 20px;
+}
+
+/* =========================
+   ACADEMIC DEMO NOTICE
+========================= */
+
+.academic-disclaimer-box {
+    background-color: #fff9e6;
+    border: 1px solid #ffe58f;
+    border-left: 5px solid #faad14;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 30px;
+    color: #614700;
+    box-shadow: 0 2px 8px rgba(250, 173, 20, 0.1);
+}
+
+.academic-disclaimer-box .disclaimer-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.academic-disclaimer-box p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 0;
+    color: #614700;
+}
+
+.academic-disclaimer-box code {
+    background-color: #fff1b8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 12.5px;
+}
+
+/* =========================
+   SAFETY TABS NAVIGATION
+========================= */
+
+.safety-tabs-nav {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e1ebfa;
+    padding-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.safety-tab-btn {
+    padding: 12px 26px;
+    background-color: white;
+    color: #444;
+    border: 1px solid #dce5f2;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.safety-tab-btn:hover {
+    color: #1769ff;
+    border-color: #1769ff;
+    background-color: #f8fbff;
+}
+
+.safety-tab-btn.active {
+    background-color: #1769ff;
+    color: white;
+    border-color: #1769ff;
+    box-shadow: 0 4px 14px rgba(23, 105, 255, 0.3);
+}
+
+/* =========================
+   TAB PANES
+========================= */
+
+.safety-pane {
+    display: none;
+}
+
+.safety-pane.active {
+    display: block;
+    animation: fadeInPane 0.3s ease-in-out;
+}
+
+@keyframes fadeInPane {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   GRID & CARDS
+========================= */
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 25px;
+}
+
+.safety-card {
+    background-color: white;
+    border: 1px solid #e1ebfa;
+    border-radius: 12px;
+    padding: 26px;
+    box-shadow: 0 4px 16px rgba(23, 105, 255, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.safety-card:hover {
+    box-shadow: 0 8px 24px rgba(23, 105, 255, 0.12);
+}
+
+.safety-card.card-full-width {
+    grid-column: 1 / -1;
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.card-icon {
+    font-size: 26px;
+    line-height: 1;
+}
+
+.card-header h2 {
+    font-size: 18px;
+    color: #1769ff;
+    margin: 0 0 3px 0;
+}
+
+.card-subtitle {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+/* =========================
+   CARD 1: EMERGENCY SOS STYLING
+========================= */
+
+.safety-card.card-sos {
+    background: linear-gradient(to bottom, #ffffff 0%, #fff9f9 100%);
+    border: 1.5px solid #ffcdd2;
+}
+
+.safety-card.card-sos .card-header h2 {
+    color: #d32f2f;
+}
+
+.btn-sos-trigger {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #ff3b30 0%, #d32f2f 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(211, 47, 47, 0.35);
+    transition: all 0.2s ease;
+}
+
+.btn-sos-trigger:hover {
+    background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(211, 47, 47, 0.45);
+}
+
+/* Active Emergency Panel */
+.sos-action-panel {
+    margin-top: 18px;
+    background-color: #fff0f0;
+    border: 1px solid #ffbaba;
+    border-radius: 8px;
+    padding: 16px;
+    animation: fadeInPane 0.3s ease;
+}
+
+.sos-action-panel.hidden {
+    display: none;
+}
+
+.sos-active-badge {
+    background-color: #d32f2f;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.sos-instructions {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.sos-call-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.btn-dial-112 {
+    display: block;
+    text-align: center;
+    background-color: #d32f2f;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(211, 47, 47, 0.3);
+    transition: background-color 0.2s ease;
+}
+
+.btn-dial-112:hover {
+    background-color: #b71c1c;
+}
+
+.btn-dial-contact {
+    display: block;
+    text-align: center;
+    background-color: #1769ff;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 11px 16px;
+    border-radius: 6px;
+    box-shadow: 0 3px 8px rgba(23, 105, 255, 0.25);
+    transition: background-color 0.2s ease;
+}
+
+.btn-dial-contact:hover {
+    background-color: #0f56d9;
+}
+
+.btn-dial-contact.hidden {
+    display: none;
+}
+
+.emergency-quick-details {
+    background-color: white;
+    border: 1px dashed #e57373;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: #333;
+}
+
+.emergency-quick-details h4 {
+    margin: 0 0 6px 0;
+    color: #d32f2f;
+    font-size: 13px;
+}
+
+.emergency-quick-details p {
+    margin: 3px 0;
+}
+
+.btn-close-sos {
+    width: 100%;
+    padding: 8px;
+    background: none;
+    border: 1px solid #aaa;
+    color: #555;
+    border-radius: 5px;
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.btn-close-sos:hover {
+    background-color: #eee;
+}
+
+/* =========================
+   EMERGENCY CONTACT STYLING
+========================= */
+
+.saved-contact-box {
+    background-color: #f0f6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.saved-contact-box.hidden {
+    display: none;
+}
+
+.contact-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.relation-badge {
+    background-color: #1769ff;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.contact-phone {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.contact-card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-call-contact-action {
+    flex: 1;
+    text-align: center;
+    background-color: #2e7d32;
+    color: white;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-call-contact-action:hover {
+    background-color: #1b5e20;
+}
+
+.btn-edit-contact {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #444;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-edit-contact:hover {
+    background-color: #eee;
+}
+
+/* Safety Form Elements */
+.safety-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 13.5px;
+    color: #333;
+}
+
+.safety-form input,
+.safety-form select,
+.safety-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.safety-form input:focus,
+.safety-form select:focus,
+.safety-form textarea:focus {
+    outline: none;
+    border-color: #1769ff;
+    box-shadow: 0 0 0 2px rgba(23, 105, 255, 0.15);
+}
+
+.safety-select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.btn-primary-action {
+    width: 100%;
+    padding: 11px 18px;
+    background-color: #1769ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary-action:hover {
+    background-color: #0f56d9;
+}
+
+/* =========================
+   TRIP PREVIEW & SHARE STYLING
+========================= */
+
+.trip-preview-box {
+    background-color: #f7faff;
+    border: 1px solid #d8e5f8;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+    line-height: 1.6;
+}
+
+.trip-preview-box p {
+    margin: 4px 0;
+}
+
+.share-actions-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-share-main {
+    flex: 1;
+    min-width: 140px;
+    padding: 11px 16px;
+    background-color: #1769ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-share-main:hover {
+    background-color: #0f56d9;
+}
+
+.btn-copy-main {
+    flex: 1;
+    min-width: 140px;
+    padding: 11px 16px;
+    background-color: white;
+    color: #1769ff;
+    border: 1.5px solid #1769ff;
+    border-radius: 6px;
+    font-size: 13.5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-main:hover {
+    background-color: #f0f6ff;
+}
+
+.gps-notice {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+/* =========================
+   DRIVER INFO & VERIFICATION
+========================= */
+
+.driver-profile-card {
+    background-color: #fafcff;
+    border: 1px solid #e1ebfa;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.driver-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #edf2f9;
+    padding-bottom: 10px;
+}
+
+.driver-avatar {
+    font-size: 32px;
+    background-color: #e8f1ff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.driver-profile-header h3 {
+    margin: 0 0 3px 0;
+    font-size: 17px;
+    color: #222;
+}
+
+.driver-phone {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+.driver-details-list p {
+    margin: 6px 0;
+    font-size: 13.5px;
+}
+
+.vehicle-plate {
+    background-color: #ffeb3b;
+    color: #000;
+    font-family: monospace;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #d4c200;
+    letter-spacing: 0.5px;
+}
+
+.verification-badge-box {
+    margin-top: 14px;
+    background-color: #eef6ff;
+    border: 1px solid #c9e0ff;
+    border-radius: 6px;
+    padding: 10px 12px;
+}
+
+.badge-status-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #0d47a1;
+    margin-bottom: 4px;
+}
+
+.status-indicator-blue {
+    color: #1769ff;
+    font-size: 14px;
+}
+
+.verification-disclaimer {
+    font-size: 11.5px;
+    color: #555;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* =========================
+   VEHICLE CHECKLIST STYLING
+========================= */
+
+.checklist-progress-container {
+    margin-bottom: 16px;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.badge-incomplete {
+    background-color: #fff3e0;
+    color: #e65100;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.badge-complete {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 9px;
+    background-color: #e2eaf5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #1769ff;
+    border-radius: 10px;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.progress-bar-fill.all-checked {
+    background-color: #2e7d32;
+}
+
+.checklist-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 16px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 12px;
+    background-color: #f8fbff;
+    border: 1px solid #e1ebfa;
+    border-radius: 6px;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.check-item:hover {
+    background-color: #edf5ff;
+}
+
+.check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    margin: 0;
+    accent-color: #1769ff;
+}
+
+.check-item.completed {
+    background-color: #f1f8e9;
+    border-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.checklist-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-secondary-action {
+    background-color: white;
+    border: 1px solid #ccc;
+    color: #555;
+    padding: 7px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.btn-secondary-action:hover {
+    background-color: #eee;
+}
+
+/* =========================
+   CONFIRMED PASSENGERS (DRIVER VIEW)
+========================= */
+
+.privacy-note {
+    background-color: #eef6ff;
+    border-left: 4px solid #1769ff;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    color: #0d47a1;
+    margin-bottom: 16px;
+    border-radius: 0 6px 6px 0;
+}
+
+.passenger-booking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+}
+
+.passenger-mini-card {
+    background-color: #f8fbff;
+    border: 1px solid #e1ebfa;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.passenger-mini-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.passenger-name-title {
+    font-weight: bold;
+    font-size: 14px;
+    color: #222;
+}
+
+.status-tag {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 10px;
+}
+
+.status-tag.confirmed {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-tag.pending {
+    background-color: #fff8e1;
+    color: #f57f17;
+}
+
+.passenger-mini-card p {
+    margin: 4px 0;
+    font-size: 12.5px;
+    color: #555;
+}
+
+/* =========================
+   REPORT FORMS & HISTORY
+========================= */
+
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.grid-form .full-col {
+    grid-column: 1 / -1;
+}
+
+.btn-report-submit {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-report-submit:hover {
+    background-color: #b71c1c;
+}
+
+.submitted-reports-section {
+    margin-top: 25px;
+    border-top: 1px solid #eef2f8;
+    padding-top: 18px;
+}
+
+.submitted-reports-section h3 {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.reports-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.report-record-card {
+    background-color: #fafcff;
+    border: 1px solid #e2eaf5;
+    border-radius: 6px;
+    padding: 12px 14px;
+    font-size: 13px;
+}
+
+.report-record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.report-category-badge {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    font-size: 11.5px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.report-timestamp {
+    font-size: 11.5px;
+    color: #777;
+}
+
+.empty-state {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    margin: 6px 0;
+}
+
+/* =========================
+   FEEDBACK MESSAGES
+========================= */
+
+.feedback-msg {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13.5px;
+    display: none;
+}
+
+.feedback-msg.success {
+    display: block;
+    background-color: #e6ffed;
+    color: #2e7d32;
+    border: 1px solid #b7eb8f;
+}
+
+.feedback-msg.error {
+    display: block;
+    background-color: #ffe6e6;
+    color: #d8000c;
+    border: 1px solid #ffb3b3;
+}
+
+/* =========================
+   SOS CONFIRMATION MODAL
+========================= */
+
+.safety-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(2px);
+}
+
+.safety-modal-overlay.hidden {
+    display: none;
+}
+
+.safety-modal-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: scaleModal 0.25s ease;
+}
+
+@keyframes scaleModal {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-alert-icon {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.safety-modal-card h3 {
+    font-size: 20px;
+    color: #d32f2f;
+    margin-bottom: 10px;
+}
+
+.safety-modal-card p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+.modal-btn-row {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-modal-cancel {
+    flex: 1;
+    padding: 11px;
+    background-color: #f1f3f5;
+    color: #444;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-modal-cancel:hover {
+    background-color: #e2e6ea;
+}
+
+.btn-modal-confirm {
+    flex: 1.5;
+    padding: 11px;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.35);
+}
+
+.btn-modal-confirm:hover {
+    background-color: #b71c1c;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 768px) {
+    .safety-hero {
+        padding: 30px 5%;
+    }
+
+    .safety-hero h1 {
+        font-size: 24px;
+    }
+
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-form {
+        grid-template-columns: 1fr;
+    }
+
+    .safety-tabs-nav {
+        flex-direction: column;
+    }
+
+    .safety-tab-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .modal-btn-row {
+        flex-direction: column-reverse;
+    }
+}

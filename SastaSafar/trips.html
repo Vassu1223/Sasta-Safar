@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sasta Safar - Find a Trip &amp; Offer a Seat</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="trips.css">
+
+    <!-- JavaScript File -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- =========================
+         Navbar Header
+    ========================== -->
+    <header>
+
+        <div class="logo">
+            Sasta Safar
+        </div>
+
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="trips.html" class="active">Trips</a>
+            <a href="howitworks.html">How It Works</a>
+            <a href="safety.html">Safety</a>
+            <a href="dashboard.html" id="navDashboard">
+                Dashboard <span id="notifBadge" class="notif-badge hidden">0</span>
+            </a>
+            <a href="login.html" id="navLogin">Login</a>
+            <a href="signup.html" class="signup" id="navSignup">Sign Up</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         Page Title + Search Bar
+    ========================== -->
+    <section class="page-title">
+
+        <h1>Find a Trip</h1>
+
+        <p>Search affordable rides, check car details, and travel together.</p>
+
+        <!-- Search Bar: Filter trips by Origin, Destination, or Date -->
+        <form class="search-bar" id="tripSearchForm">
+
+            <input type="text" id="tripFrom" placeholder="From (e.g. Etawah)">
+            <input type="text" id="tripTo" placeholder="To (e.g. Delhi)">
+            <input type="date" id="tripDate">
+
+            <button type="submit" id="tripSearchBtn">Search</button>
+            <button type="button" id="resetSearchBtn" class="btn-reset">Show All</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         Trips List Section
+    ========================== -->
+    <section class="trips">
+
+        <h2>Available Trips</h2>
+
+        <!-- Container where trip cards are displayed -->
+        <div class="trip-container" id="tripContainer">
+
+            <!-- Trip 1 -->
+            <div class="trip-card" data-tripid="trip_default_1" data-from="etawah" data-to="delhi" data-driver="Rahul Sharma" data-phone="9876543210" data-company="Maruti Suzuki" data-model="Swift" data-vehicleno="UP 75 AB 1234" data-category="Hatchback" data-distance="350" data-price="350" data-seats="3" data-totalseats="5" data-date="01 Nov 2026" data-time="06:00 AM">
+
+                <div class="route">
+                    <span class="city-from">Etawah</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="city-to">Delhi</span>
+                </div>
+
+                <div class="car-info-badge">
+                    🚗 Maruti Suzuki Swift &bull; Hatchback
+                </div>
+
+                <p class="info">📅 Date: 01 Nov 2026 &nbsp;|&nbsp; ⏰ 06:00 AM</p>
+                <p class="info">🔢 Vehicle No: <span class="vehicle-no-badge">UP 75 AB 1234</span></p>
+                <p class="info">🛣️ Distance: <strong>350 km</strong></p>
+                <p class="info">👤 Driver: <strong>Rahul Sharma</strong></p>
+                <p class="info seats-info">💺 Available Seats: <span class="seat-count">3</span></p>
+
+                <div class="card-bottom">
+                    <p class="price">₹350 <small>/ seat</small></p>
+                    <button type="button" class="btn-book">Book Seat</button>
+                </div>
+
+            </div>
+
+
+            <!-- Trip 2 -->
+            <div class="trip-card" data-tripid="trip_default_2" data-from="agra" data-to="lucknow" data-driver="Amit Verma" data-phone="9812345678" data-company="Hyundai" data-model="Creta" data-vehicleno="UP 80 CD 5678" data-category="SUV" data-distance="330" data-price="460" data-seats="2" data-totalseats="5" data-date="02 Nov 2026" data-time="08:30 AM">
+
+                <div class="route">
+                    <span class="city-from">Agra</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="city-to">Lucknow</span>
+                </div>
+
+                <div class="car-info-badge">
+                    🚗 Hyundai Creta &bull; SUV
+                </div>
+
+                <p class="info">📅 Date: 02 Nov 2026 &nbsp;|&nbsp; ⏰ 08:30 AM</p>
+                <p class="info">🔢 Vehicle No: <span class="vehicle-no-badge">UP 80 CD 5678</span></p>
+                <p class="info">🛣️ Distance: <strong>330 km</strong></p>
+                <p class="info">👤 Driver: <strong>Amit Verma</strong></p>
+                <p class="info seats-info">💺 Available Seats: <span class="seat-count">2</span></p>
+
+                <div class="card-bottom">
+                    <p class="price">₹460 <small>/ seat</small></p>
+                    <button type="button" class="btn-book">Book Seat</button>
+                </div>
+
+            </div>
+
+
+            <!-- Trip 3 -->
+            <div class="trip-card" data-tripid="trip_default_3" data-from="kanpur" data-to="etawah" data-driver="Neha Singh" data-phone="9765432109" data-company="Tata Motors" data-model="Nexon" data-vehicleno="UP 78 EF 9012" data-category="Compact SUV" data-distance="150" data-price="190" data-seats="1" data-totalseats="5" data-date="03 Nov 2026" data-time="05:00 PM">
+
+                <div class="route">
+                    <span class="city-from">Kanpur</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="city-to">Etawah</span>
+                </div>
+
+                <div class="car-info-badge">
+                    🚗 Tata Motors Nexon &bull; Compact SUV
+                </div>
+
+                <p class="info">📅 Date: 03 Nov 2026 &nbsp;|&nbsp; ⏰ 05:00 PM</p>
+                <p class="info">🔢 Vehicle No: <span class="vehicle-no-badge">UP 78 EF 9012</span></p>
+                <p class="info">🛣️ Distance: <strong>150 km</strong></p>
+                <p class="info">👤 Driver: <strong>Neha Singh</strong></p>
+                <p class="info seats-info">💺 Available Seats: <span class="seat-count">1</span></p>
+
+                <div class="card-bottom">
+                    <p class="price">₹190 <small>/ seat</small></p>
+                    <button type="button" class="btn-book">Book Seat</button>
+                </div>
+
+            </div>
+
+
+            <!-- Trip 4 -->
+            <div class="trip-card" data-tripid="trip_default_4" data-from="delhi" data-to="jaipur" data-driver="Vikas Gupta" data-phone="9890123456" data-company="Mahindra" data-model="Scorpio N" data-vehicleno="DL 01 GH 3456" data-category="SUV" data-distance="280" data-price="390" data-seats="4" data-totalseats="7" data-date="05 Nov 2026" data-time="07:15 AM">
+
+                <div class="route">
+                    <span class="city-from">Delhi</span>
+                    <span class="arrow">&rarr;</span>
+                    <span class="city-to">Jaipur</span>
+                </div>
+
+                <div class="car-info-badge">
+                    🚗 Mahindra Scorpio N &bull; SUV
+                </div>
+
+                <p class="info">📅 Date: 05 Nov 2026 &nbsp;|&nbsp; ⏰ 07:15 AM</p>
+                <p class="info">🔢 Vehicle No: <span class="vehicle-no-badge">DL 01 GH 3456</span></p>
+                <p class="info">🛣️ Distance: <strong>280 km</strong></p>
+                <p class="info">👤 Driver: <strong>Vikas Gupta</strong></p>
+                <p class="info seats-info">💺 Available Seats: <span class="seat-count">4</span></p>
+
+                <div class="card-bottom">
+                    <p class="price">₹390 <small>/ seat</small></p>
+                    <button type="button" class="btn-book">Book Seat</button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Box shown when no search results match -->
+        <div id="noTripsMessage" class="no-trips" style="display: none;">
+            <h3>No trips found for this route</h3>
+            <p>Try searching another city or check back soon!</p>
+            <button type="button" id="noTripsResetBtn">View All Available Trips</button>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Offer a Seat Section (Post a Trip)
+    ========================== -->
+    <section class="offer-section" id="offer-section">
+
+        <h2>Offer a Seat / Post a Trip</h2>
+
+        <p>
+            Driving somewhere with empty seats? Select your car, get automatic fair fare calculation, 
+            and connect with verified travellers.
+        </p>
+
+        <div class="offer-form-container">
+
+            <form id="offerSeatForm">
+
+                <div class="offer-form-grid">
+
+                    <!-- Driver Information -->
+                    <div class="form-group">
+                        <label for="offerDriver">Driver Full Name</label>
+                        <input type="text" id="offerDriver" placeholder="e.g. Ravi Kumar" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offerPhone">Contact Number</label>
+                        <input type="tel" id="offerPhone" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+                    </div>
+
+                    <!-- 1. Indian Car Company Selection (Searchable) -->
+                    <div class="form-group">
+                        <label for="offerCompanySearch">Car Company (Manufacturer)</label>
+                        <input type="text" id="offerCompanySearch" placeholder="Type to search company (e.g. Tata, Hyundai)..." autocomplete="off">
+                        <select id="offerCompany" required>
+                            <option value="">-- Select Car Company --</option>
+                            <option value="Maruti Suzuki">Maruti Suzuki</option>
+                            <option value="Hyundai">Hyundai</option>
+                            <option value="Tata Motors">Tata Motors</option>
+                            <option value="Mahindra">Mahindra</option>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Kia">Kia</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Renault">Renault</option>
+                            <option value="Nissan">Nissan</option>
+                            <option value="Volkswagen">Volkswagen</option>
+                            <option value="Skoda">Skoda</option>
+                            <option value="MG Motor">MG Motor</option>
+                            <option value="Jeep">Jeep</option>
+                            <option value="Citroen">Citroen</option>
+                            <option value="Force Motors">Force Motors</option>
+                            <option value="BYD">BYD</option>
+                        </select>
+                        <span class="search-hint">💡 Type in the box above to filter manufacturers</span>
+                    </div>
+
+                    <!-- 2. Car Model Selection (Filtered by company & Searchable) -->
+                    <div class="form-group">
+                        <label for="offerModelSearch">Car Model</label>
+                        <input type="text" id="offerModelSearch" placeholder="Type to search car model..." autocomplete="off">
+                        <select id="offerModel" required disabled>
+                            <option value="">-- First select car company above --</option>
+                        </select>
+                        <div id="noModelFound" style="display: none; color: #dc3545; font-size: 12px; margin-top: 4px; font-weight: bold;">
+                            No car model found
+                        </div>
+                        <span class="search-hint">💡 Models update automatically based on selected company</span>
+                    </div>
+
+                    <!-- Vehicle Number Plate -->
+                    <div class="form-group">
+                        <label for="offerVehicleNo">Vehicle Number (Registration)</label>
+                        <input type="text" id="offerVehicleNo" placeholder="e.g. UP 75 AB 1234" required>
+                    </div>
+
+                    <!-- 3. Automatic Vehicle Category (With manual correction support) -->
+                    <div class="form-group">
+                        <label for="offerCategory">Vehicle Category (Auto-detected)</label>
+                        <select id="offerCategory" required>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="Compact SUV">Compact SUV</option>
+                            <option value="SUV">SUV</option>
+                            <option value="MPV">MPV</option>
+                            <option value="Premium SUV">Premium SUV</option>
+                            <option value="Electric Vehicle">Electric Vehicle</option>
+                        </select>
+                        <span class="search-hint">💡 Automatically detected. You may manually correct if needed.</span>
+                    </div>
+
+                    <!-- Total Seating Capacity & Available Passenger Seats -->
+                    <div class="form-group">
+                        <label for="offerTotalSeats">Total Seating Capacity</label>
+                        <select id="offerTotalSeats" required>
+                            <option value="4">4 Seater</option>
+                            <option value="5" selected>5 Seater</option>
+                            <option value="6">6 Seater</option>
+                            <option value="7">7 Seater</option>
+                            <option value="8">8 Seater</option>
+                            <option value="10">10 Seater</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offerSeats">Available Passenger Seats to Offer</label>
+                        <input type="number" id="offerSeats" placeholder="e.g. 3" min="1" max="9" value="3" required>
+                    </div>
+
+                    <!-- Route: Starting City & Destination -->
+                    <div class="form-group">
+                        <label for="offerFrom">Starting City (From)</label>
+                        <input type="text" id="offerFrom" placeholder="e.g. Agra" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offerTo">Destination City (To)</label>
+                        <input type="text" id="offerTo" placeholder="e.g. Delhi" required>
+                    </div>
+
+                    <!-- Travel Date & Departure Time -->
+                    <div class="form-group">
+                        <label for="offerDate">Travel Date</label>
+                        <input type="date" id="offerDate" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="offerTime">Departure Time</label>
+                        <input type="time" id="offerTime" required>
+                    </div>
+
+                    <!-- 4. Travel Distance in KM -->
+                    <div class="form-group">
+                        <label for="offerDistance">Travel Distance (in km)</label>
+                        <input type="number" id="offerDistance" placeholder="e.g. 350" min="10" max="2500" value="200" required>
+                        <span class="search-hint">💡 Used for automatic per-passenger fare calculation</span>
+                    </div>
+
+                    <!-- 5. Automatic Fare Display (No manual typing required) -->
+                    <div class="form-group">
+                        <label>Automatic Calculated Fare Per Passenger</label>
+                        <div class="fare-display-box" id="fareDisplayBox">
+                            <span>Estimated Fare:</span>
+                            <span class="amount" id="calculatedFareText">₹200</span>
+                        </div>
+                        <!-- Hidden input holding the numeric calculated price -->
+                        <input type="hidden" id="offerPrice" value="200">
+                    </div>
+
+                </div>
+
+                <button type="submit" id="offerSubmitBtn">🚗 Publish Trip &amp; Offer Seats</button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         Passenger Seat Booking Modal Popup
+    ========================== -->
+    <div class="modal-overlay" id="bookingModal">
+
+        <div class="modal-box">
+
+            <h3>Request Seat Booking</h3>
+
+            <!-- Trip Summary Information -->
+            <div class="modal-trip-summary" id="modalTripSummary">
+                <!-- Populated dynamically by JavaScript -->
+            </div>
+
+            <form id="modalBookingForm">
+
+                <label for="passengerName">Passenger Full Name</label>
+                <input type="text" id="passengerName" placeholder="Enter your full name" required>
+
+                <label for="passengerPhone">Contact Number</label>
+                <input type="tel" id="passengerPhone" placeholder="Enter 10-digit phone number" pattern="[0-9]{10}" maxlength="10" required>
+
+                <label for="passengerSeats">Number of Seats to Book</label>
+                <input type="number" id="passengerSeats" value="1" min="1" max="4" required>
+
+                <!-- Estimated Total Amount Box -->
+                <div class="estimated-amount-box">
+                    <span>Total Estimated Booking Amount:</span>
+                    <span class="total-price" id="modalTotalAmount">₹0</span>
+                </div>
+
+                <p style="font-size: 13px; color: #666; margin-bottom: 15px; line-height: 1.4;">
+                    ℹ️ <em>Your booking will be sent with status <strong>"Pending"</strong>. 
+                    The driver will review and confirm your ride. Available seats will only decrease once approved.</em>
+                </p>
+
+                <div class="modal-buttons">
+                    <button type="button" class="btn-cancel" id="cancelBookingBtn">Cancel</button>
+                    <button type="submit" class="btn-confirm" id="confirmBookingBtn">Confirm Booking Request</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         Footer Section
+    ========================== -->
+    <footer>
+
+        <h3>Sasta Safar</h3>
+
+        <p>Travel Smart. Travel Together.</p>
+
+        <p class="copyright">
+            © 2026 Sasta Safar. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -49,8 +49,42 @@ nav a {
     font-size: 15px;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
     color: #1769ff;
+    font-weight: bold;
+}
+
+/* User Greeting and Logout in Navbar */
+.user-greeting {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1769ff;
+}
+
+.logout-link {
+    color: #d8000c !important;
+}
+
+.logout-link:hover {
+    text-decoration: underline;
+}
+
+/* Notification Badge in Navbar */
+.notif-badge {
+    background-color: #ff3b30;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 10px;
+    margin-left: 4px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.notif-badge.hidden {
+    display: none;
 }
 
 .signup {
@@ -332,6 +366,75 @@ nav a:hover {
 
 .step p {
     color: #666;
+}
+
+
+/* =========================
+   ABOUT PAGE STYLES
+========================= */
+
+.about-hero {
+    padding: 60px 10%;
+    text-align: center;
+    background: linear-gradient(120deg, #eaf2ff, white);
+}
+
+.about-hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.about-hero p {
+    font-size: 18px;
+    color: #666;
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.about-section {
+    padding: 60px 10%;
+    background-color: white;
+}
+
+.about-section.alt {
+    background-color: #f5f8ff;
+}
+
+.about-section h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 35px;
+    color: #222;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.about-card {
+    background-color: #f5f8ff;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #e1ebfa;
+}
+
+.about-section.alt .about-card {
+    background-color: white;
+}
+
+.about-card h3 {
+    color: #1769ff;
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.about-card p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 15px;
 }
 
 
